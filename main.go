@@ -49,7 +49,8 @@ func main() {
 						}
 					}
 					if err != nil {
-						log.Println("error within ", s+uri+p, err)
+						log.Println(status)
+						log.Println("error within ", err)
 					}
 					wg.Done()
 				}
