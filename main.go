@@ -49,7 +49,6 @@ func main() {
 						}
 					}
 					if err != nil {
-						log.Println(status)
 						log.Println("error within ", err)
 					}
 					wg.Done()
