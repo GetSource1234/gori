@@ -17,7 +17,7 @@ func main() {
 	path := flag.String("urlPath", "", "path to list of uri")
 	flag.Parse()
 
-	schemes := []string{"http", "https"}
+	schemes := []string{"http://", "https://"}
 	paths := []string{"/.git/HEAD", "/.git/HEAD/", "/.git/config", "/.env",
 		"/config/config.yml", ".circleci/config.yml", "app/config/config.yml"}
 
