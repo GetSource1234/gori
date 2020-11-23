@@ -19,7 +19,7 @@ func main() {
 
 	schemes := []string{"http://", "https://"}
 	paths := []string{"/.git/HEAD", "/.git/HEAD/", "/.git/config", "/.env",
-		"/config/config.yml", ".circleci/config.yml", "app/config/config.yml"}
+		"/config/config.yml", "/.circleci/config.yml", "/app/config/config.yml"}
 
 	uris, err := file.Read(*path)
 	if err != nil || len(uris) == 0 {
