@@ -5,6 +5,7 @@ import (
 	"os"
 )
 
+// Read wrapper to read file for domain list
 func Read(path string) (words []string, err error) {
 
 	f, err := os.Open(path)
