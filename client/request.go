@@ -3,6 +3,7 @@ package client
 import (
 	"io/ioutil"
 	"net/http"
+	"time"
 )
 
 // Request wrapper to initiate HTTP request
@@ -16,7 +17,7 @@ func Request(URL string) (
 		return status, body, resHeader, err
 	}
 
-	client := &http.Client{}
+	client := &http.Client{Timeout: 5 * time.Second}
 	resp, err := client.Do(req)
 	if err != nil {
 		return
@@ -28,6 +29,6 @@ func Request(URL string) (
 		return resp.StatusCode, nil, nil, err
 	}
 
-	return
+	return resp.StatusCode, body, resp.Header, err
 
 }
