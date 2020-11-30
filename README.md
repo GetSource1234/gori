@@ -6,6 +6,7 @@ Gori is a tiny and rapid config file scanner. Gori allows to do concurrents scan
 
 ### Prerequisites
 * go > 1.13
+Optional:
   ```sh
   go mod init
   ```
@@ -32,6 +33,8 @@ Run tests:
 ```sh
 go test ./...
 ```
+#Note!!!
+Some false positive results may occur, double check manually if needed.
 
 ## License
 

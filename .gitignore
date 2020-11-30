@@ -15,9 +15,6 @@
 # Server config
 *settings.json
 
-# Go module checksums
-*.sum
-
 # Mac store
 *.DS_store
 
