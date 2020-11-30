@@ -19,13 +19,14 @@ func main() {
 
 	schemes := []string{"http://", "https://"}
 	paths := map[string][]string{
-		"/.git/HEAD":             []string{"ref:"},
-		"/.git":                  []string{"ref:"},
-		"/.git/config":           []string{"ref:"},
+		"/.git/HEAD":             []string{"ref: refs/"},
+		"/.git":                  []string{"HEAD", "COMMIT_EDITMSG"},
+		"/.git/config":           []string{"repositoryformatversion"},
 		"/.env":                  []string{"DOMAIN", "DB", "PASSWORD"},
-		"/config/config.yml":     []string{"app", "db", "url"},
-		"/.circleci/config.yml":  []string{"docker", "build", "image"},
-		"/app/config/config.yml": []string{"app", "db", "url"},
+		"/config/config.yml":     []string{"- run", "docker", "circleci"},
+		"/.circleci/config.yml":  []string{"- run", "docker", "circleci"},
+		"/.travis.yml":           []string{"before_install", "language: ruby"},
+		"/app/config/config.yml": []string{"- run", "docker", "circleci"},
 	}
 
 	uris, err := file.Read(*path)
