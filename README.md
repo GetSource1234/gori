@@ -26,7 +26,7 @@ Optional:
 ```sh
 go run main.go --urlPath=<PATH_TO_DOMAIN_LIST>
 ```
-Supported flags: urlPath, verbose.
+Supported flags: urlPath, verbose, tor.
 Domain list: simple .text file with whitespace as a separator.
 
 Run tests:
@@ -35,6 +35,11 @@ go test ./...
 ```
 #Note!!!
 Some false positive results may occur, double check manually if needed.
+
+#Note!!!
+Make sure if tor socks proxy is running if you use *--tor* flag
+*Tor Security note:*
+https://2019.www.torproject.org/docs/faq.html.en#TBBSocksPort
 
 ## License
 
