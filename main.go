@@ -8,13 +8,13 @@ import (
 	file "gori/fileReader"
 	"log"
 	"os"
-	"strings"
 	"sync"
 )
 
 func main() {
 	path := flag.String("urlPath", "", "path to list of uri")
 	verbose := flag.Bool("verbose", false, "show output reposne")
+	tor := flag.Bool("tor", false, "use tor as proxy")
 	flag.Parse()
 
 	schemes := []string{"http://", "https://"}
@@ -42,34 +42,18 @@ func main() {
 	reqs := len(uris) * len(paths) * 2
 	wg.Add(reqs)
 
-	var errors []string
+	var mu sync.Mutex
+	errors := &[]string{}
 
 	for _, u := range uris {
-		go func(uri string, wg *sync.WaitGroup) {
-			for _, s := range schemes {
-				for p, r := range paths {
-					status, body, _, err := client.Request(s + uri + p)
-					if status == 200 {
-						for _, v := range r {
-							if strings.Contains(string(body), v) {
-								log.Println("Leaked!!! - ", s+uri+p)
-							}
-						}
-					}
-					if err != nil {
-						errors = append(errors, fmt.Sprintf("error within : %s", err))
-					}
-					wg.Done()
-				}
-			}
-		}(u, &wg)
+		go client.Call(u, &wg, schemes, paths, *tor, &mu, errors)
 	}
 
 	wg.Wait()
 
-	if len(errors) > 0 {
+	if len(*errors) > 0 {
 		if *verbose {
-			for _, e := range errors {
+			for _, e := range *errors {
 				fmt.Println(e)
 			}
 		} else {

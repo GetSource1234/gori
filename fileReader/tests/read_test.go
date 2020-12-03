@@ -20,3 +20,13 @@ func TestSuccessReadFile(t *testing.T) {
 
 	assert.Equal(validSlice, slice)
 }
+
+func TestFailReadFile(t *testing.T) {
+
+	assert := assert.New(t)
+	e := "It seems -> test.com, <- is wrong, remove it from the list and check it manually"
+
+	_, err := file.Read("testFailSlice.txt")
+
+	assert.EqualError(err, e, "error does not match")
+}
