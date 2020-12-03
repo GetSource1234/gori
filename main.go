@@ -45,6 +45,8 @@ func main() {
 	var mu sync.Mutex
 	errors := &[]string{}
 
+	fmt.Println("----------------scanning----------------")
+
 	for _, u := range uris {
 		go client.Call(u, &wg, schemes, paths, *tor, &mu, errors)
 	}
@@ -58,6 +60,7 @@ func main() {
 			}
 		} else {
 			fmt.Println("Some requests have not been proceed, please run again with the verbose flag, like --verbose=true")
+			fmt.Println()
 		}
 	}
 
