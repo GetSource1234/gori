@@ -11,7 +11,7 @@ import (
 func TestSuccessReadFile(t *testing.T) {
 
 	assert := assert.New(t)
-	validSlice := []string{"test.com", "www.test2.com", "example.com", "staging.app.example.to", "o1.ptr3825.example.to"}
+	validSlice := []string{"test.com", "www.test2.com", "example.com", "staging.app.example.to", "o1.ptr3825.example.to", "m.example.com"}
 
 	slice, err := file.Read("testSlice.txt")
 	if err != nil {

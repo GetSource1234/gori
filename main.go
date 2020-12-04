@@ -30,7 +30,7 @@ func main() {
 
 	uris, err := file.Read(*path)
 	if err != nil || len(uris) == 0 {
-		if len(uris) == 0 {
+		if len(uris) == 0 && err == nil {
 			err = errors.New("URL file is wrong")
 		}
 		fmt.Println(err)
