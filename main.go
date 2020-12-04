@@ -6,7 +6,6 @@ import (
 	"fmt"
 	client "gori/client"
 	file "gori/fileReader"
-	"log"
 	"os"
 	"sync"
 )
@@ -34,7 +33,7 @@ func main() {
 		if len(uris) == 0 {
 			err = errors.New("URL file is wrong")
 		}
-		log.Println(err)
+		fmt.Println(err)
 		os.Exit(1)
 	}
 
