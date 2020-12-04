@@ -59,7 +59,7 @@ func main() {
 				fmt.Println(e)
 			}
 		} else {
-			fmt.Println("Some requests have not been proceed, please run again with the verbose flag, like --verbose=true")
+			fmt.Println("Some requests have not been proceed, please run again with the verbose flag: --verbose=true")
 			fmt.Println()
 		}
 	}
