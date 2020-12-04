@@ -24,7 +24,7 @@ Optional:
 
 ## Usage
 ```sh
-go run main.go --urlPath=<PATH_TO_DOMAIN_LIST>
+go run gori.go --urlPath=<PATH_TO_DOMAIN_LIST>
 ```
 Supported flags: urlPath, verbose, tor.
 Domain list: simple .text file with whitespace as a separator.
