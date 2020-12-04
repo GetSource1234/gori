@@ -1,6 +1,6 @@
 ## About The Project
 
-Gori is a tiny and rapid config file scanner. Gori allows to do concurrents scans regarding .git, .env, .travis.yml, config.yml files within GET request.
+Gori is a tiny and rapid config file scanner. Gori allows to do concurrent scans regarding .git, .env, .travis.yml, config.yml files within GET request.
 
 ## Getting Started
 
