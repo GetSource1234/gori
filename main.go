@@ -32,7 +32,7 @@ func main() {
 	uris, err := file.Read(*path)
 	if err != nil || len(uris) == 0 {
 		if len(uris) == 0 {
-			err = errors.New("Url file is wrong")
+			err = errors.New("URL file is wrong")
 		}
 		log.Println(err)
 		os.Exit(1)
