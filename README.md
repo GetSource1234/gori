@@ -15,7 +15,7 @@ Optional:
 
 1. Clone the repo
      ```sh
-     git clone https://github.com/your_username_/Project-Name.git
+     git clone https://github.com/GetSource1234/gori.git
      ```
 2. Setup go modules (optional if you see build errors)
      ```sh
